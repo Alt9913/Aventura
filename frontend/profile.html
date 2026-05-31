@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Aventura - Mein Profil</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dark-mode">
+<nav class="navbar">
+    <a href="index.html" class="logo-link">
+    <img src="assets/logo.png" alt="Aventura Logo" class="nav-logo">
+    </a>
+    <ul class="nav-links">
+        <li><a href="map.html" data-i18n="nav_discover">Entdecken</a></li>
+        <li><a href="#gadgets" data-i18n="nav_gadgets">Gadgets</a></li>
+        <li><a href="founders.html" data-i18n="nav_about">Über uns</a></li>
+    </ul>
+    <div class="lang-switch">
+        <select id="language-selector">
+            <option value="de">DE</option>
+            <option value="en">EN</option>
+            <option value="tr">TR</option>
+            <option value="ru">RU</option>
+            <option valua="ua">UA</option>
+        </select>
+    </div>
+</nav>
+    <main class="profile-view" style="padding: 60px 10%; background: #0f0f0f; color: white; min-height: 80vh;">
+        
+        <div class="profile-header" style="background: #1a1a1a; padding: 30px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 20px; margin-bottom: 40px;">
+            <div class="profile-avatar" style="width: 80px; height: 80px; background: #ff9800; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white; font-weight: bold;">
+                <i class="fas fa-user"></i>
+            </div>
+            <div>
+                <h1 style="margin: 0; color: white;">Willkommen zurück, <span id="profile-username" style="color: #ff9800;">Gast</span>!</h1>
+                <p style="margin: 5px 0 0 0; color: #888;">Hier findest du deine exklusiven Reisebuchungen.</p>
+            </div>
+        </div>
+
+        <div class="bookings-section" style="background: #1a1a1a; padding: 40px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05);">
+            <h2 style="margin-bottom: 25px; display: flex; align-items: center; gap: 15px;">
+                <i class="fas fa-suitcase-rolling" style="color: #ff9800;"></i> Meine Buchungen
+            </h2>
+
+            <div id="bookings-container">
+                <p id="bookings-loading" style="color: #888;">Deine Abenteuer werden abgerufen...</p>
+            </div>
+        </div>
+
+    </main>
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-column">
+            <h3 data-i18n="footer_discover">Entdecken</h3>
+            <a href="#" data-i18n="footer_worldmap">Weltkarte</a>
+            <a href="#" data-i18n="footer_travel_destinations">Reiseziele</a>
+            <a href="#" data-i18n="footer_gadgets">Gadgets</a>
+        </div>
+        <div class="footer-column">
+            <h3 data-i18n="footer_account">Account</h3>
+            <a href="login.html" data-i18n="footer_manage_profile">Profil verwalten</a>
+            <a href="#" data-i18n="footer_my_travel">Meine Reisen</a>
+        </div>
+        <div class="footer-column">
+            <h3 data-i18n="footer_aventura_store">Aventura Store</h3>
+            <a href="#" data-i18n="footer_partner_programm">Partnerprogramm</a>
+            <a href="#" data-i18n="footer_financing">Finanzierung</a>
+        </div>
+        <div class="footer-column">
+            <h3 data-i18n="footer_about">Über Aventura</h3>
+            <a href="#" data-i18n="footer_news">Neuigkeiten</a>
+            <a href="founders.html" data-i18n="footer_founders">Gründer</a>
+            <a href="#" data-i18n="footer_contact">Kontakt</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p data-i18n="footer_copyright">Copyright © 2026 Aventura Inc. Alle Rechte vorbehalten.</p>
+        <div class="footer-legal">
+            <a href="#" data-i18n="footer_data_protect">Datenschutz</a> | <a href="#" data-i18n="footer_conditions">Nutzungsbedingungen</a> | <a href="#" data-i18n="footer_impressum">Impressum</a>
+        </div>
+    </div>
+</footer>
+    <script src="js/main.js"></script> <script src="js/profile.js"></script>
+    
+</body>
+</html>
