@@ -14,7 +14,7 @@ services:
       - "3307:3306"
     volumes:
       - db_data:/var/lib/mysql
-      - ./backend/db_init.sql:/docker-entrypoint-initdb.d/db_init.sql
+      - ./aventura_db_init.sql:/docker-entrypoint-initdb.d/aventura_db_init.sql
 
   backend:
     build: ./backend
