@@ -1,0 +1,46 @@
+version: "3.9"
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: aventura_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mysecretpassword
+      MYSQL_DATABASE: aventura_db
+      MYSQL_USER: aventura_user
+      MYSQL_PASSWORD: aventura_pass
+    ports:
+      - "3307:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./backend/db_init.sql:/docker-entrypoint-initdb.d/db_init.sql
+
+  backend:
+    build: ./backend
+    container_name: aventura_backend
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      DB_HOST: db
+      DB_USER: aventura_user
+      DB_PASSWORD: aventura_pass
+      DB_NAME: aventura_db
+    depends_on:
+      - db
+    command: python app.py
+
+  frontend:
+    image: nginx:alpine
+    container_name: aventura_frontend
+    restart: always
+    ports:
+      - "8000:80"
+    volumes:
+      - ./frontend:/usr/share/nginx/html
+    depends_on:
+      - backend
+
+volumes:
+  db_data:
