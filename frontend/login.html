@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+    <a href="index.html" class="logo-link">
+    <img src="assets/logo.png" alt="Aventura Logo" class="nav-logo">
+    </a>
+    <ul class="nav-links">
+        <li><a href="map.html" data-i18n="nav_discover">Entdecken</a></li>
+        <li><a href="#gadgets" data-i18n="nav_gadgets">Gadgets</a></li>
+        <li><a href="#about" data-i18n="nav_about">Über uns</a></li>
+    </ul>
+    <div class="lang-switch">
+        <select id="language-selector">
+            <option value="de">DE</option>
+            <option value="en">EN</option>
+            <option value="tr">TR</option>
+            <option value="ru">RU</option>
+            <option valua="ua">UA</option>
+        </select>
+    </div>
+</nav>
+<main class="auth-view">
+    <div class="auth-card">
+        <h2 class="auth-title" data-i18n="login_welcome">Willkommen zurück</h2>
+        <p class="auth-subtitle" data-i18n="login_login">Logge dich ein, um deine Abenteuer zu verwalten.</p>
+        
+        <form id="login-form">
+            <div class="input-group">
+                <input type="email" id="email" required placeholder=" ">
+                <label data-i18n="login_email">E-Mail Adresse</label>
+            </div>
+            
+            <div class="input-group">
+                <input type="password" id="password" required placeholder=" ">
+                <label data-i18n="login_password">Passwort</label>
+            </div>
+            <div id="status-message" class="status-msg"></div>
+            <button type="submit" class="auth-btn" data-i18n="login_button">Login</button>
+        </form>
+        
+        <div class="auth-footer">
+            <p><span data-i18n="login_noacc">Noch kein Account?</span> 
+            <a href="register.html" data-i18n="login_registernow">Hier registrieren</a></p>
+        </div>
+    </div>
+</main>
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-column">
+            <h3 data-i18n="footer_discover">Entdecken</h3>
+            <a href="#" data-i18n="footer_worldmap">Weltkarte</a>
+            <a href="#" data-i18n="footer_travel_destinations">Reiseziele</a>
+            <a href="#" data-i18n="footer_gadgets">Gadgets</a>
+        </div>
+        <div class="footer-column">
+            <h3 data-i18n="footer_account">Account</h3>
+            <a href="login.html" data-i18n="footer_manage_profile">Profil verwalten</a>
+            <a href="#" data-i18n="footer_my_travel">Meine Reisen</a>
+        </div>
+        <div class="footer-column">
+            <h3 data-i18n="footer_aventura_store">Aventura Store</h3>
+            <a href="#" data-i18n="footer_partner_programm">Partnerprogramm</a>
+            <a href="#" data-i18n="footer_financing">Finanzierung</a>
+        </div>
+        <div class="footer-column">
+            <h3 data-i18n="footer_about">Über Aventura</h3>
+            <a href="#" data-i18n="footer_news">Neuigkeiten</a>
+            <a href="founders.html" data-i18n="footer_founders">Gründer</a>
+            <a href="#" data-i18n="footer_contact">Kontakt</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p data-i18n="footer_copyright">Copyright © 2026 Aventura Inc. Alle Rechte vorbehalten.</p>
+        <div class="footer-legal">
+            <a href="#" data-i18n="footer_data_protect">Datenschutz</a> | <a href="#" data-i18n="footer_conditions">Nutzungsbedingungen</a> | <a href="#" data-i18n="footer_impressum">Impressum</a>
+        </div>
+    </div>
+</footer>
+
+    <script src="js/main.js"></script>
+<script>
+document.getElementById('login-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const statusMsg = document.getElementById('status-message');
+    const loginData = {
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value
+    };
+
+    try {
+        const response = await fetch('http://127.0.0.1:5000/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(loginData)
+        });
+
+        const result = await response.json();
+
+        if (response.ok) {
+            // 1. Daten im LocalStorage speichern
+            localStorage.setItem('userName', result.user.firstName);
+             localStorage.setItem('userToken', result.token); // Das Token für spätere Anfragen
+    
+            statusMsg.textContent = "Erfolgreich! Lade Abenteuer...";
+            statusMsg.className = "status-msg success";
+
+            // 3. Kurze Pause für die Ästhetik, dann weiterleiten
+            setTimeout(() => {
+                window.location.href = 'index.html'; 
+            }, 1200);
+
+        } else {
+            // Fehler direkt im Formular anzeigen (statt alert)
+            statusMsg.textContent = "Fehler: " + result.message;
+            statusMsg.className = "status-msg error";
+        }
+
+    } catch (error) {
+        // Falls der Python-Server gar nicht läuft
+        statusMsg.textContent = "Server nicht erreichbar.";
+        statusMsg.className = "status-msg error";
+        console.error("Verbindung zum Backend fehlgeschlagen:", error);
+    }
+});
+</script>
+</body>
+</html>
