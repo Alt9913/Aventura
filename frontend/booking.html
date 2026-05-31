@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Aventura - Unterkunft buchen</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode">
+<nav class="navbar">
+    <a href="index.html" class="logo-link">
+    <img src="assets/logo.png" alt="Aventura Logo" class="nav-logo">
+    </a>
+    <ul class="nav-links">
+        <li><a href="map.html" data-i18n="nav_discover">Entdecken</a></li>
+        <li><a href="#gadgets" data-i18n="nav_gadgets">Gadgets</a></li>
+        <li><a href="founders.html" data-i18n="nav_about">Über uns</a></li>
+    </ul>
+    <div class="lang-switch">
+        <select id="language-selector">
+            <option value="de">DE</option>
+            <option value="en">EN</option>
+            <option value="tr">TR</option>
+            <option value="ru">RU</option>
+            <option valua="ua">UA</option>
+        </select>
+    </div>
+</nav>
+    <main class="booking-view" style="padding: 60px 10%; background: #0f0f0f; color: white; min-height: 80vh;">
+        <div class="booking-container" style="display: flex; gap: 50px; flex-wrap: wrap; margin-top: 40px;">
+            
+            <div class="booking-details" style="flex: 1; min-width: 300px;">
+                <img id="booking-image" src="" alt="Unterkunft" style="width: 100%; height: 350px; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+                <h1 id="booking-title" style="margin-top: 25px; color: #ff9800;">Lade Unterkunft...</h1>
+                <p id="booking-location" style="color: #888; font-size: 1.1rem;"></p>
+                <p id="booking-price" style="font-size: 1.3rem; margin-top: 15px; font-weight: bold;"></p>
+            </div>
+
+            <div class="booking-box" style="flex: 1; min-width: 300px; background: #1a1a1a; padding: 40px; border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); height: fit-content;">
+                <h2 style="margin-bottom: 25px;" data-i18n="your_time_booking">Dein Zeitraum</h2>
+                
+                <form id="booking-form">
+                    <div style="display: flex; flex-direction: column; gap: 15px; margin-bottom: 25px;">
+                        <div>
+                            <label style="display: block; font-size: 0.8rem; text-transform: uppercase; color: #ff9800; margin-bottom: 5px; font-weight: bold;" data-i18n="booking_arrival">Anreise</label>
+                            <input type="date" id="start-date" required style="width: 100%; padding: 12px; background: #252525; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; font-family: inherit;">
+                        </div>
+                        <div>
+                            <label style="display: block; font-size: 0.8rem; text-transform: uppercase; color: #ff9800; margin-bottom: 5px; font-weight: bold;" data-i18n="booking_departure">Abreise</label>
+                            <input type="date" id="end-date" required style="width: 100%; padding: 12px; background: #252525; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; font-family: inherit;">
+                        </div>
+                    </div>
+                    <div id="booking-summary" style="display: none; background: rgba(255, 255, 255, 0.02); border: 1px dashed rgba(255, 152, 0, 0.3); padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 0.95rem; color: #ccc;">
+                            <span id="price-calculation">0 Nächte x 0,00€</span>
+                            <span id="price-total" style="font-weight: bold; color: #ff9800; font-size: 1.1rem;">0,00€</span>
+                        </div>
+                    </div>
+
+                    <button data-i18n="booking_booking" type="submit" style="width: 100%; background: #ff9800; color: white; border: none; padding: 15px; border-radius: 8px; font-size: 1.1rem; font-weight: bold; cursor: pointer; transition: 0.2s;">
+                        Jetzt kostenpflichtig buchen
+                    </button>
+                </form>
+                
+                <p id="booking-status" style="margin-top: 15px; text-align: center; font-weight: bold;"></p>
+            </div>
+
+        </div>
+    </main>
+    <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-column">
+            <h3 data-i18n="footer_discover">Entdecken</h3>
+            <a href="#" data-i18n="footer_worldmap">Weltkarte</a>
+            <a href="#" data-i18n="footer_travel_destinations">Reiseziele</a>
+            <a href="#" data-i18n="footer_gadgets">Gadgets</a>
+        </div>
+        <div class="footer-column">
+            <h3 data-i18n="footer_account">Account</h3>
+            <a href="login.html" data-i18n="footer_manage_profile">Profil verwalten</a>
+            <a href="#" data-i18n="footer_my_travel">Meine Reisen</a>
+        </div>
+        <div class="footer-column">
+            <h3 data-i18n="footer_aventura_store">Aventura Store</h3>
+            <a href="#" data-i18n="footer_partner_programm">Partnerprogramm</a>
+            <a href="#" data-i18n="footer_financing">Finanzierung</a>
+        </div>
+        <div class="footer-column">
+            <h3 data-i18n="footer_about">Über Aventura</h3>
+            <a href="#" data-i18n="footer_news">Neuigkeiten</a>
+            <a href="founders.html" data-i18n="footer_founders">Gründer</a>
+            <a href="#" data-i18n="footer_contact">Kontakt</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p data-i18n="footer_copyright">Copyright © 2026 Aventura Inc. Alle Rechte vorbehalten.</p>
+        <div class="footer-legal">
+            <a href="#" data-i18n="footer_data_protect">Datenschutz</a> | <a href="#" data-i18n="footer_conditions">Nutzungsbedingungen</a> | <a href="#" data-i18n="footer_impressum">Impressum</a>
+        </div>
+    </div>
+</footer>
+
+    <script src="js/booking.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
