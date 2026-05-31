@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aventura</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+    <a href="index.html" class="logo-link">
+    <img src="assets/logo.png" alt="Aventura Logo" class="nav-logo">
+    </a>
+    <ul class="nav-links">
+        <li><a href="map.html" data-i18n="nav_discover">Entdecken</a></li>
+        <li><a href="#gadgets" data-i18n="nav_gadgets">Gadgets</a></li>
+        <li><a href="founders.html" data-i18n="nav_about">Über uns</a></li>
+    </ul>
+    <div class="lang-switch">
+        <select id="language-selector">
+            <option value="de">DE</option>
+            <option value="en">EN</option>
+            <option value="tr">TR</option>
+            <option value="ru">RU</option>
+            <option valua="ua">UA</option>
+        </select>
+    </div>
+</nav>
+<main class="home-view">
+    <section class="hero-section">
+        <div class="hero-video-container">
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1920&q=80" alt="Adventure Background" class="hero-image">
+            <div class="hero-overlay"></div>
+        </div>
+        
+        <div class="hero-content">
+            <h1 data-i18n="hero_title">Entdecke Orte, die bislang im Verborgenen lagen</h1>
+            <p data-i18n="hero_subtitle">Exklusive Unterkünfte und unvergessliche Erlebnisse weltweit</p>
+            
+            <div class="hero-cta">
+                <a href="map.html" class="btn-primary" data-i18n="btn_explore">Jetzt Weltkarte erkunden</a>
+                <button id="random-adventure" class="btn-secondary" data-i18n="btn_random">Zufalls-Abenteuer</button>
+            </div>
+        </div>
+    </section>
+    <section class="trending-section">
+    <div class="section-header">
+        <h2 data-i18n="trending_title">Beliebte Reiseziele</h2>
+        <p data-i18n="trending_subtitle">Von unserer Community am besten bewertet</p>
+    </div>
+
+    <div id="accommodations-grid" class="accommodations-grid">
+        <div class="loading-spinner" data-i18n="loading">Abenteuer werden geladen...</div>
+    </div>
+</section>
+<section class="stats-section">
+    <div class="stats-container">
+        <div class="stat-item">
+            <div class="stat-icon"><i class="fas fa-globe-americas"></i></div>
+            <h3 class="stat-number">190+</h3>
+            <p class="stat-label" data-i18n="stats_countries">Länder weltweit</p>
+        </div>
+        <div class="stat-item">
+            <div class="stat-icon"><i class="fas fa-home"></i></div>
+            <h3 class="stat-number">15k+</h3>
+            <p class="stat-label" data-i18n="stats_stays">Unterkünfte</p>
+        </div>
+        <div class="stat-item">
+            <div class="stat-icon"><i class="fas fa-user-shield"></i></div>
+            <h3 class="stat-number">100%</h3>
+            <p class="stat-label" data-i18n="stats_verified">Verifizierte Profile</p>
+        </div>
+        <div class="stat-item">
+            <div class="stat-icon"><i class="fas fa-headset"></i></div>
+            <h3 class="stat-number">24/7</h3>
+            <p class="stat-label" data-i18n="stats_support">Globaler Support</p>
+        </div>
+    </div>
+</section>
+</main>
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-column">
+            <h3 data-i18n="footer_discover">Entdecken</h3>
+            <a href="#" data-i18n="footer_worldmap">Weltkarte</a>
+            <a href="#" data-i18n="footer_travel_destinations">Reiseziele</a>
+            <a href="#" data-i18n="footer_gadgets">Gadgets</a>
+        </div>
+        <div class="footer-column">
+            <h3 data-i18n="footer_account">Account</h3>
+            <a href="login.html" data-i18n="footer_manage_profile">Profil verwalten</a>
+            <a href="#" data-i18n="footer_my_travel">Meine Reisen</a>
+        </div>
+        <div class="footer-column">
+            <h3 data-i18n="footer_aventura_store">Aventura Store</h3>
+            <a href="#" data-i18n="footer_partner_programm">Partnerprogramm</a>
+            <a href="#" data-i18n="footer_financing">Finanzierung</a>
+        </div>
+        <div class="footer-column">
+            <h3 data-i18n="footer_about">Über Aventura</h3>
+            <a href="#" data-i18n="footer_news">Neuigkeiten</a>
+            <a href="founders.html" data-i18n="footer_founders">Gründer</a>
+            <a href="#" data-i18n="footer_contact">Kontakt</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p data-i18n="footer_copyright">Copyright © 2026 Aventura Inc. Alle Rechte vorbehalten.</p>
+        <div class="footer-legal">
+            <a href="#" data-i18n="footer_data_protect">Datenschutz</a> | <a href="#" data-i18n="footer_conditions">Nutzungsbedingungen</a> | <a href="#" data-i18n="footer_impressum">Impressum</a>
+        </div>
+    </div>
+</footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
